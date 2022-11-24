@@ -8,10 +8,17 @@ export default function AppWeather() {
   const apiKey = import.meta.env.VITE_API_KEY;
   const [input, setInput] = useState('');
   const [city, setCity] = useState('amsterdam');
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState({
+    city: 'Amsterdam',
+    cityNL: 'Amsterdam',
+    country: 'NL',
+    lat: 52.3727598,
+    lon: 4.8936041,
+  });
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    // if (!city) return;
     fetch(
       `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
     )
@@ -41,7 +48,6 @@ export default function AppWeather() {
   const cityName = location.city;
   const cityNameNL = location.cityNL;
   const countryName = location.country;
-  // console.log(location)
 
   return (
     <div className="weather">
@@ -64,8 +70,8 @@ export default function AppWeather() {
             />
           </div>
         </div>
-         ) : (
-          <div>Voer een stad in</div>
+      ) : (
+        <div>Voer een stad in</div>
       )}
     </div>
   );
