@@ -25,8 +25,6 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
     return localHour;
   }
 
-  console.log(data.current)
-
   return (
     <>
       <div className="card-front">
