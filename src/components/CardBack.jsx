@@ -1,11 +1,6 @@
 import '../App.css';
 
-export default function Forecast({
-  data,
-  cityName,
-  cityNameNL,
-  countryName,
-}) {
+export default function Forecast({ data, cityName, cityNameNL, countryName }) {
   const d = new Date();
   const userOffset = d.getTimezoneOffset() * 60;
 
@@ -146,6 +141,7 @@ export default function Forecast({
         <div className="grid-d">—</div>
         <div className="grid-e">{data.daily[6].temp.day.toFixed()}&deg;</div>
       </div>
+      <div className="line-back2"></div>
     </div>
   );
 }
