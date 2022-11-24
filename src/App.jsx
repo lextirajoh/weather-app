@@ -1,34 +1,78 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import Search from './components/Search';
+import Current from './components/CardFront';
+import Forecast from './components/CardBack';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function AppWeather() {
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const [input, setInput] = useState('');
+  const [city, setCity] = useState('Amsterdam');
+  const [location, setLocation] = useState([]);
+  const [data, setData] = useState([]);
+  const [flipped, setFlipped] = useState(false)
+
+
+  useEffect(() => {
+    if (!city) return;
+    fetch(
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setLocation({
+          lat: data[0].lat,
+          lon: data[0].lon,
+          city: data[0].name,
+          cityNL: data[0].local_names.nl,
+          country: data[0].country,
+        });
+      });
+  }, [city, apiKey]);
+
+  useEffect(() => {
+    if (!location) return;
+    fetch(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&units=metric&lang=nl&exclude=minutely&appid=${apiKey}`
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        setData(result);
+      });
+  }, [location, apiKey]);
+
+  const cityName = location.city;
+  const cityNameNL = location.cityNL;
+  const countryName = location.country;
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+    <div className="weather">
+      <Search input={input} setInput={setInput} setCity={setCity} />
 
-export default App
+      {typeof data.current !== 'undefined' ? (
+        <div className="card">
+          <div className="card-inner">
+            <Current
+              data={data}
+              cityName={cityName}
+              cityNameNL={cityNameNL}
+              countryName={countryName}
+              flipped={flipped}
+              setFlipped={setFlipped}
+            />
+            <Forecast
+              data={data}
+              cityName={cityName}
+              cityNameNL={cityNameNL}
+              countryName={countryName}
+              flipped={flipped}
+              setFlipped={setFlipped}
+            />
+          </div>
+        </div>
+         ) : (
+          <div>Voer een stad in</div>
+      )}
+    </div>
+  );
+}
