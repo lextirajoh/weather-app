@@ -25,6 +25,8 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
     return localHour;
   }
 
+  console.log(data.current)
+
   return (
     <>
       <div className="card-front">
@@ -55,14 +57,17 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
               {data.current.temp.toFixed()}&deg;
             </span>
           </div>
+          Voelt als {data.current.feels_like.toFixed()}&deg;
           <p className="card-front-desc">
             {data.current.weather[0].description}
           </p>
         </div>
 
+    
+
         {/* ALERT */}
 
-        <div className="alert">
+        {/* <div className="alert">
           {!data.alerts ? (
             <p>Geen waarschuwingen op dit moment.</p>
           ) : (
@@ -71,7 +76,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             </p>
           )}
           <div className="line"></div>
-        </div>
+        </div> */}
 
         {/* komende uren voorspelling */}
 

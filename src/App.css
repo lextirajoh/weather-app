@@ -94,15 +94,18 @@
 .temp-and-icon {
   display: flex;
   justify-content: center;
+  padding: 0;
 }
 
 .card-front-temp {
   font-size: 5rem;
+  margin-bottom: -1rem;
 }
 
 .card-front-desc {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
+  margin-top: .7rem;
 }
 
 .alert {
