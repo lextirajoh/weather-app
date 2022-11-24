@@ -17,6 +17,8 @@ export default function AppWeather() {
   });
   const [data, setData] = useState([]);
 
+  console.log(import.meta.env.VITE_API_KEY)
+
   useEffect(() => {
     // if (!city) return;
     fetch(
