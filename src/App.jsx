@@ -9,6 +9,11 @@ export default function AppWeather() {
   const [input, setInput] = useState('');
   const [city, setCity] = useState('amsterdam');
   const [location, setLocation] = useState({
+    city: 'Amsterdam',
+    cityNL: 'Amsterdam',
+    country: 'NL',
+    lat: 52.3727598,
+    lon: 4.8936041,
   });
   const [data, setData] = useState([]);
 
