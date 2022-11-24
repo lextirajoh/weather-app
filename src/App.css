@@ -1,4 +1,4 @@
-.weather {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,6 +75,12 @@
   font-size: 1.5rem;
   font-weight: 100;
   margin-left: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.lokaal {
+  font-size: 1.3rem;
+  font-weight: 100;
   color: rgba(255, 255, 255, 0.7);
 }
 

@@ -11,7 +11,7 @@ export default function Search({ input, setInput, setCity }) {
     <StyledForm onSubmit={handleSubmit}>
       <StyledInput
         className="searchbar-input"
-        type="text"
+        type="search"
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Zoek een stad..."
@@ -39,19 +39,18 @@ const StyledForm = styled.form`
 `;
 
 const StyledInput = styled.input`
-  width: 100%;
+  width: 90%;
   height: 100%;
-  padding: .5rem .8rem;
+  padding: 0.5rem 0.8rem 0.5rem 2.5rem;
+  font-size: 1.1rem;;
   border: transparent;
   border-radius: 1rem;
 `;
 
 const StyledButton = styled.button`
   position: absolute;
-  right: 10px;
+  left: 5px;
   border: transparent;
   background-color: inherit;
   cursor: pointer;
 `;
-
-

@@ -50,7 +50,7 @@ export default function AppWeather() {
   const countryName = location.country;
 
   return (
-    <div className="weather">
+    <div className="container">
       <Search input={input} setInput={setInput} setCity={setCity} />
 
       {data.current ? (

@@ -44,7 +44,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
               </span>
             </p>
           )}
-          <span className="time">{timeConverter(data.current.dt)}</span>
+          <span className="time">{timeConverter(data.current.dt)} <span className="lokaal"><sup>lokaal</sup></span> </span>
         </header>
 
         {/* MIDDEN */}
