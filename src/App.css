@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   width: 25rem;
-  height: 39rem;
+  height: 37rem;
   margin: 0;
   padding: 0;
   background-color: transparent;
@@ -91,6 +91,7 @@
 .card-front-middle {
   text-align: center;
 }
+
 .temp-and-icon {
   display: flex;
   justify-content: center;
@@ -126,7 +127,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .hour-container {
