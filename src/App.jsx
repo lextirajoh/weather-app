@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Search from './components/Search';
-import Current from './components/CardFront';
-import Forecast from './components/CardBack';
+import CardFront from './components/CardFront';
+import CardBack from './components/CardBack';
 import './App.css';
 
 export default function AppWeather() {
   const apiKey = import.meta.env.VITE_API_KEY;
   const [input, setInput] = useState('');
-  const [city, setCity] = useState('Amsterdam');
-  const [location, setLocation] = useState([]);
+  const [city, setCity] = useState('amsterdam');
+  const [location, setLocation] = useState('');
   const [data, setData] = useState([]);
-  const [flipped, setFlipped] = useState(false)
-
 
   useEffect(() => {
-    if (!city) return;
     fetch(
       `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
     )
@@ -28,7 +25,7 @@ export default function AppWeather() {
           country: data[0].country,
         });
       });
-  }, [city, apiKey]);
+  }, [city]);
 
   useEffect(() => {
     if (!location) return;
@@ -39,34 +36,31 @@ export default function AppWeather() {
       .then((result) => {
         setData(result);
       });
-  }, [location, apiKey]);
+  }, [location]);
 
   const cityName = location.city;
   const cityNameNL = location.cityNL;
   const countryName = location.country;
+  // console.log(location)
 
   return (
     <div className="weather">
       <Search input={input} setInput={setInput} setCity={setCity} />
 
-      {typeof data.current !== 'undefined' ? (
+      {data.current ? (
         <div className="card">
           <div className="card-inner">
-            <Current
+            <CardFront
               data={data}
               cityName={cityName}
               cityNameNL={cityNameNL}
               countryName={countryName}
-              flipped={flipped}
-              setFlipped={setFlipped}
             />
-            <Forecast
+            <CardBack
               data={data}
               cityName={cityName}
               cityNameNL={cityNameNL}
               countryName={countryName}
-              flipped={flipped}
-              setFlipped={setFlipped}
             />
           </div>
         </div>
