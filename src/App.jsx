@@ -5,7 +5,7 @@ import CardBack from './components/CardBack';
 
 export default function AppWeather() {
   // const apiKey = 'a579bad7a75725b1c18b236cd1878ba0';
-  const apiKey = import.meta.env.VITE_API_KEY;
+  // const apiKey = import.meta.env.VITE_API_KEY;
   const [input, setInput] = useState('');
   const [city, setCity] = useState('amsterdam');
   const [location, setLocation] = useState({
@@ -17,12 +17,10 @@ export default function AppWeather() {
   });
   const [data, setData] = useState([]);
 
-  console.log(apiKey)
-
   useEffect(() => {
     // if (!city) return;
     fetch(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${import.meta.env.VITE_API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -39,7 +37,7 @@ export default function AppWeather() {
   useEffect(() => {
     if (!location) return;
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&units=metric&lang=nl&exclude=minutely&appid=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&units=metric&lang=nl&exclude=minutely&appid=${import.meta.env.VITE_API_KEY}`
     )
       .then((res) => res.json())
       .then((result) => {
