@@ -220,6 +220,7 @@ label {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
+  gap: .5rem;
   margin: 1rem 0;
 }
 
