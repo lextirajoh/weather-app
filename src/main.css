@@ -8,11 +8,6 @@
   margin: 0;
 }
 
-html,
-body {
-  height: 100%;
-}
-
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -200,6 +195,7 @@ label {
   flex-wrap: nowrap;
   justify-content: center;
   margin-top: 2.5rem;
+  gap: .2rem;
 }
 
 .hour__card {
@@ -220,7 +216,7 @@ label {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  gap: .5rem;
+  gap: .4rem;
   margin: 1rem 0;
 }
 
