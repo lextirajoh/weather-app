@@ -1,4 +1,3 @@
-import '../App.css';
 import turn from '../assets/turn2.png';
 import openweather from '../assets/openweather.png';
 

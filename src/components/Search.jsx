@@ -32,14 +32,15 @@ const StyledForm = styled.form`
   position: relative;
   display: flex;
   align-items: center;
-  width: 20rem;
+  width: 90%;
+  max-width: 18rem;
   height: 2rem;
   margin-bottom: 3rem;
   background-color: inherit;
 `;
 
 const StyledInput = styled.input`
-  width: 90%;
+  width: 100%;
   height: 100%;
   padding: 0.5rem 0.8rem 0.5rem 2.5rem;
   font-size: 1.1rem;;

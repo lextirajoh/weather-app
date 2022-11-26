@@ -1,8 +1,62 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: arial;
+  background-color: rgb(233, 233, 233);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   margin-top: 2rem;
 }
 
@@ -14,11 +68,13 @@
   margin: 0;
   padding: 0;
   background-color: transparent;
+  width: 95%;
 }
 
 label {
-  width: 30rem;
-  height: 37.5rem;
+  width: 95%;
+  max-width: 30rem;
+  height: 35rem;
   perspective: 1000px;
 }
 
@@ -26,7 +82,7 @@ label {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 1s;
+  transition: transform 1000ms;
   transform-style: preserve-3d;
 }
 
@@ -87,6 +143,7 @@ label {
 .city {
   font-size: 2.5rem;
   font-weight: bold;
+  line-height: 40px;
   text-shadow: 0 2px 4px rgba(52, 160, 242, 0.4);
 }
 
@@ -141,7 +198,7 @@ label {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.hours-forecast-wrapper {
+.hours-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -149,18 +206,76 @@ label {
   margin-top: 2.5rem;
 }
 
-.hour-container {
+.hour-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 0.6rem;
 }
 
-.line-front-bottom {
+.line-front {
   width: 90%;
   height: 1px;
   margin: 1rem auto 0 auto;
   background-color: rgba(255, 255, 255, 0.7);
+}
+
+.extra-info {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.extra-info__top,
+.extra-info__bottom {
+  display: flex;
+}
+
+.extra-info__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+@media (max-width: 550px) {
+  label {
+    height: 33.5rem;
+  }
+
+  .city {
+    font-size: 1.8rem;
+    font-weight: normal;
+  }
+
+  .country {
+    font-size: 1.2rem;
+  }
+
+  .lokaal {
+    font-size: 1.2rem;
+  }
+
+  .time {
+    font-size: 1.4rem;
+  }
+
+  .card-front-temp {
+    font-size: 3.5rem;
+  }
+
+  .card-front-desc {
+    font-size: 1.5rem;
+  }
+
+  .hour-card:last-of-type {
+    display: none;
+  }
+
+  .extra-info {
+    flex-wrap: wrap;
+  }
 }
 
 /* CARD BACK */
@@ -171,21 +286,6 @@ label {
   align-items: center;
   padding: 1rem;
   transform: rotateY(180deg);
-}
-
-.card-back-info {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  margin: 1rem 0;
-}
-
-.info-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 1rem;
 }
 
 .komende {
@@ -240,7 +340,6 @@ label {
   grid-column: 5 / span 1;
   font-weight: bold;
 }
-
 
 .openweather-logo {
   position: absolute;

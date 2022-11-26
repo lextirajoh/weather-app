@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Search from './components/Search';
 import CardFront from './components/CardFront';
 import CardBack from './components/CardBack';
-import './App.css';
 
 export default function AppWeather() {
   const apiKey = 'a579bad7a75725b1c18b236cd1878ba0';

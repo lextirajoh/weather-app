@@ -1,6 +1,5 @@
 import moment from 'moment';
 import 'moment/locale/nl';
-import '../App.css';
 import sunset from '../assets/sunset.png';
 import sunrise from '../assets/sunrise.png';
 import humidity from '../assets/humidity.png';
@@ -84,8 +83,8 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
 
         {/* komende uren voorspelling */}
 
-        <div className="hours-forecast-wrapper">
-          <div className="hour-container">
+        <div className="hours-container">
+          <div className="hour-card">
             <div>Nu</div>
             <div>
               <img
@@ -96,7 +95,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             <div>{data.hourly[0].temp.toFixed()}&deg;</div>
           </div>
 
-          <div className="hour-container">
+          <div className="hour-card">
             <div> {hourConverter(data.hourly[1].dt)}</div>
             <div>
               <img
@@ -107,7 +106,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             <div>{data.hourly[1].temp.toFixed()}&deg;</div>
           </div>
 
-          <div className="hour-container">
+          <div className="hour-card">
             <div> {hourConverter(data.hourly[2].dt)}</div>
             <div>
               <img
@@ -118,7 +117,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             <div>{data.hourly[2].temp.toFixed()}&deg;</div>
           </div>
 
-          <div className="hour-container">
+          <div className="hour-card">
             <div> {hourConverter(data.hourly[3].dt)}</div>
             <div>
               <img
@@ -129,7 +128,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             <div>{data.hourly[3].temp.toFixed()}&deg;</div>
           </div>
 
-          <div className="hour-container">
+          <div className="hour-card">
             <div> {hourConverter(data.hourly[4].dt)}</div>
             <div>
               <img
@@ -140,7 +139,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             <div>{data.hourly[4].temp.toFixed()}&deg;</div>
           </div>
 
-          <div className="hour-container">
+          <div className="hour-card">
             <div> {hourConverter(data.hourly[5].dt)}</div>
             <div>
               <img
@@ -152,62 +151,64 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
           </div>
         </div>
 
-        <div className="line-front-bottom"></div>
+        <div className="line-front"></div>
 
-        <div className="card-back-info">
-          <div className="info-container">
-            <div>
-              {' '}
-              <img src={sunrise} width="30px" alt="zonsopgang"></img>{' '}
+        <div className="extra-info">
+          <div className="extra-info__top">
+            <div className="extra-info__card">
+              <div>
+                {' '}
+                <img src={sunrise} width="30px" alt="zonsopgang"></img>{' '}
+              </div>
+              <div>{timeConverter(data.current.sunrise)}</div>
             </div>
-            <div>{timeConverter(data.current.sunrise)}</div>
+
+            <div className="extra-info__card">
+              <div>
+                {' '}
+                <img src={sunset} width="30px" alt="zonsondergang"></img>{' '}
+              </div>
+              <div>{timeConverter(data.current.sunset)}</div>
+            </div>
+
+            <div className="extra-info__card">
+              <div>
+                {' '}
+                <img src={uvindex} width="30px" alt="UV-index"></img>{' '}
+              </div>
+              <div>{data.current.uvi.toFixed()}</div>
+            </div>
           </div>
-
-          <div className="info-container">
-            <div>
-              {' '}
-              <img src={sunset} width="30px" alt="zonsondergang"></img>{' '}
+          <div className="extra-info__bottom">
+            <div className="extra-info__card">
+              <div>
+                {' '}
+                <img src={cloud} width="30px" alt="Bewolking"></img>{' '}
+              </div>
+              <div>{data.current.clouds}%</div>
             </div>
-            <div>{timeConverter(data.current.sunset)}</div>
-          </div>
 
-          <div className="info-container">
-            <div>
-              {' '}
-              <img src={uvindex} width="30px" alt="UV-index"></img>{' '}
+            <div className="extra-info__card">
+              <div>
+                {' '}
+                <img src={wind} width="30px" alt="Windsnelheid"></img>{' '}
+              </div>
+              <div>{data.current.wind_speed.toFixed(1)} m/s</div>
             </div>
-            <div>{data.current.uvi.toFixed()}</div>
-          </div>
 
-          <div className="info-container">
-            <div>
-              {' '}
-              <img src={cloud} width="30px" alt="Bewolking"></img>{' '}
+            <div className="extra-info__card">
+              <div>
+                {' '}
+                <img
+                  src={humidity}
+                  width="30px"
+                  alt="luchtvochtigheid"
+                ></img>{' '}
+              </div>
+              <div>{data.current.humidity}%</div>
             </div>
-            <div>{data.current.clouds}%</div>
-          </div>
-
-          <div className="info-container">
-            <div>
-              {' '}
-              <img src={wind} width="30px" alt="Windsnelheid"></img>{' '}
-            </div>
-            <div>{data.current.wind_speed.toFixed(1)} m/s</div>
-          </div>
-
-          <div className="info-container">
-            <div>
-              {' '}
-              <img
-                src={humidity}
-                width="30px"
-                alt="luchtvochtigheid"
-              ></img>{' '}
-            </div>
-            <div>{data.current.humidity}%</div>
           </div>
         </div>
-        
       </div>{' '}
     </>
   );
