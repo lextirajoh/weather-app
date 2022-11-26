@@ -4,8 +4,7 @@ import CardFront from './components/CardFront';
 import CardBack from './components/CardBack';
 
 export default function AppWeather() {
-  // const apiKey = 'a579bad7a75725b1c18b236cd1878ba0';
-  // const apiKey = import.meta.env.VITE_API_KEY;
+  const apiKey = 'a579bad7a75725b1c18b236cd1878ba0';
   const [input, setInput] = useState('');
   const [city, setCity] = useState('amsterdam');
   const [location, setLocation] = useState({
@@ -18,9 +17,8 @@ export default function AppWeather() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // if (!city) return;
     fetch(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${import.meta.env.VITE_API_KEY}`
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -37,7 +35,7 @@ export default function AppWeather() {
   useEffect(() => {
     if (!location) return;
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&units=metric&lang=nl&exclude=minutely&appid=${import.meta.env.VITE_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${location.lat}&lon=${location.lon}&units=metric&lang=nl&exclude=minutely&appid=${apiKey}`
     )
       .then((res) => res.json())
       .then((result) => {
@@ -56,9 +54,9 @@ export default function AppWeather() {
       {data.current ? (
         <>
           <div className="card">
-            <input id="toggle" type="checkbox"/>
+            <input id="toggle" type="checkbox" />
             <label htmlFor="toggle">
-              <div className="card-inner">
+              <div className="card__inner">
                 <CardFront
                   data={data}
                   cityName={cityName}

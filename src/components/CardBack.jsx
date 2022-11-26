@@ -24,7 +24,7 @@ export default function Forecast({ data, cityName, cityNameNL, countryName }) {
   }
 
   return (
-    <div className="card-back">
+    <div className="card__back">
       <img src={turn} alt="Flip card" className="flip" />
 
       {typeof cityNameNL !== 'undefined' ? (
@@ -52,7 +52,7 @@ export default function Forecast({ data, cityName, cityNameNL, countryName }) {
 
       {/* WEEK VERWACHTING */}
 
-      <div className="card-back-grid">
+      <div className="card__back--grid">
         <div className="grid-a">
           <p>Vandaag</p>
         </div>

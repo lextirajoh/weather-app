@@ -78,7 +78,7 @@ label {
   perspective: 1000px;
 }
 
-.card-inner {
+.card__inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -90,7 +90,7 @@ label {
   display: none;
 }
 
-#toggle:checked + label .card-inner {
+#toggle:checked + label .card__inner {
   transform: rotateY(-180deg);
 }
 
@@ -106,8 +106,8 @@ label {
   transform: scale(1.1);
 }
 
-.card-front,
-.card-back {
+.card__front,
+.card__back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -131,7 +131,7 @@ label {
   backface-visibility: hidden;
 }
 
-.card-front {
+.card__front {
   margin: 0 auto;
 }
 
@@ -141,6 +141,7 @@ label {
 }
 
 .city {
+  display: inline;
   font-size: 2.5rem;
   font-weight: bold;
   line-height: 40px;
@@ -164,22 +165,17 @@ label {
   font-size: 1.8rem;
 }
 
-.card-front-middle {
+.card__front--middle {
   text-align: center;
+  font-size: 1.2rem;
 }
 
-.temp-and-icon {
-  display: flex;
-  justify-content: center;
-  padding: 0;
-}
-
-.card-front-temp {
+.temp {
   font-size: 5rem;
   margin-bottom: -1rem;
 }
 
-.card-front-desc {
+.desc {
   font-size: 2rem;
   font-weight: bold;
   margin-top: 0.7rem;
@@ -198,7 +194,7 @@ label {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.hours-container {
+.hours__container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -206,7 +202,7 @@ label {
   margin-top: 2.5rem;
 }
 
-.hour-card {
+.hour__card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -220,7 +216,7 @@ label {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.extra-info {
+.extra-info__container {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -261,15 +257,15 @@ label {
     font-size: 1.4rem;
   }
 
-  .card-front-temp {
+  .temp {
     font-size: 3.5rem;
   }
 
-  .card-front-desc {
+  .desc {
     font-size: 1.5rem;
   }
 
-  .hour-card:last-of-type {
+  .hour__card:last-of-type {
     display: none;
   }
 
@@ -280,7 +276,7 @@ label {
 
 /* CARD BACK */
 
-.card-back {
+.card__back {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -306,7 +302,7 @@ label {
   margin: 0.2rem auto 0.5rem auto;
   background-color: rgba(255, 255, 255, 0.7);
 }
-.card-back-grid {
+.card__back--grid {
   display: grid;
   justify-content: center;
   align-items: center;

@@ -28,7 +28,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
 
   return (
     <>
-      <div className="card-front">
+      <div className="card__front">
         <img src={turn} alt="Flip card" className="flip" />
         <header>
           {typeof cityNameNL !== 'undefined' ? (
@@ -56,16 +56,10 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
 
         {/* MIDDEN */}
 
-        <div className="card-front-middle">
-          <div className="temp-and-icon">
-            <span className="card-front-temp">
-              {data.current.temp.toFixed()}&deg;
-            </span>
-          </div>
+        <div className="card__front--middle">
+          <div className="temp">{data.current.temp.toFixed()}&deg;</div>
           Voelt als {data.current.feels_like.toFixed()}&deg;
-          <p className="card-front-desc">
-            {data.current.weather[0].description}
-          </p>
+          <p className="desc">{data.current.weather[0].description}</p>
         </div>
 
         {/* ALERT */}
@@ -83,8 +77,8 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
 
         {/* komende uren voorspelling */}
 
-        <div className="hours-container">
-          <div className="hour-card">
+        <div className="hours__container">
+          <div className="hour__card">
             <div>Nu</div>
             <div>
               <img
@@ -95,7 +89,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             <div>{data.hourly[0].temp.toFixed()}&deg;</div>
           </div>
 
-          <div className="hour-card">
+          <div className="hour__card">
             <div> {hourConverter(data.hourly[1].dt)}</div>
             <div>
               <img
@@ -106,7 +100,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             <div>{data.hourly[1].temp.toFixed()}&deg;</div>
           </div>
 
-          <div className="hour-card">
+          <div className="hour__card">
             <div> {hourConverter(data.hourly[2].dt)}</div>
             <div>
               <img
@@ -117,7 +111,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             <div>{data.hourly[2].temp.toFixed()}&deg;</div>
           </div>
 
-          <div className="hour-card">
+          <div className="hour__card">
             <div> {hourConverter(data.hourly[3].dt)}</div>
             <div>
               <img
@@ -128,7 +122,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             <div>{data.hourly[3].temp.toFixed()}&deg;</div>
           </div>
 
-          <div className="hour-card">
+          <div className="hour__card">
             <div> {hourConverter(data.hourly[4].dt)}</div>
             <div>
               <img
@@ -139,7 +133,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             <div>{data.hourly[4].temp.toFixed()}&deg;</div>
           </div>
 
-          <div className="hour-card">
+          <div className="hour__card">
             <div> {hourConverter(data.hourly[5].dt)}</div>
             <div>
               <img
@@ -153,7 +147,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
 
         <div className="line-front"></div>
 
-        <div className="extra-info">
+        <div className="extra-info__container">
           <div className="extra-info__top">
             <div className="extra-info__card">
               <div>
