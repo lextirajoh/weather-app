@@ -269,7 +269,7 @@ label {
     display: none;
   }
 
-  .extra-info {
+  .extra-info__container {
     flex-wrap: wrap;
   }
 }
