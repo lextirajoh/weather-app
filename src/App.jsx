@@ -4,7 +4,8 @@ import CardFront from './components/CardFront';
 import CardBack from './components/CardBack';
 
 export default function AppWeather() {
-  const apiKey = 'a579bad7a75725b1c18b236cd1878ba0';
+  // const apiKey = 'a579bad7a75725b1c18b236cd1878ba0';
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [input, setInput] = useState('');
   const [city, setCity] = useState('amsterdam');
   const [location, setLocation] = useState({
@@ -15,6 +16,8 @@ export default function AppWeather() {
     lon: 4.8936041,
   });
   const [data, setData] = useState([]);
+
+  console.log(apiKey)
 
   useEffect(() => {
     // if (!city) return;
