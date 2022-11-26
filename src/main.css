@@ -73,7 +73,7 @@ h6 {
 
 label {
   width: 95%;
-  max-width: 30rem;
+  max-width: 31rem;
   height: 35rem;
   perspective: 1000px;
 }
@@ -340,7 +340,7 @@ label {
 
 .openweather-logo {
   position: absolute;
-  bottom: 10px;
+  bottom: 15px;
   right: 25px;
   width: 5rem;
 }
