@@ -44,6 +44,10 @@ label {
   right: 25px;
   width: 1.5rem;
   cursor: pointer;
+  transition: transform 200ms ease-in-out;
+}
+.flip:hover {
+  transform: scale(1.1);
 }
 
 .card-front,
