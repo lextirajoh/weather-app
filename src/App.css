@@ -241,9 +241,10 @@ label {
   font-weight: bold;
 }
 
-.openweather {
+
+.openweather-logo {
   position: absolute;
-  width: 4rem;
   bottom: 10px;
-  right: 30px;
+  right: 25px;
+  width: 5rem;
 }

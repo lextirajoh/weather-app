@@ -147,7 +147,11 @@ export default function Forecast({ data, cityName, cityNameNL, countryName }) {
       </div>
       <div className="line-back2"></div>
       <a href="https://openweathermap.org">
-        <img src={openweather} className="openweather" alt="OpenWeather logo" />
+        <img
+          src={openweather}
+          className="openweather-logo"
+          alt="OpenWeather logo"
+        />
       </a>
     </div>
   );
