@@ -1,6 +1,6 @@
 import '../App.css';
 import turn from '../assets/turn2.png';
-
+import openweather from '../assets/openweather.png';
 
 export default function Forecast({ data, cityName, cityNameNL, countryName }) {
   const d = new Date();
@@ -26,7 +26,7 @@ export default function Forecast({ data, cityName, cityNameNL, countryName }) {
 
   return (
     <div className="card-back">
-        <img src={turn} alt="Flip card" className="flip" />
+      <img src={turn} alt="Flip card" className="flip" />
 
       {typeof cityNameNL !== 'undefined' ? (
         <p>
@@ -146,6 +146,9 @@ export default function Forecast({ data, cityName, cityNameNL, countryName }) {
         <div className="grid-e">{data.daily[6].temp.day.toFixed()}&deg;</div>
       </div>
       <div className="line-back2"></div>
+      <a href="https://openweathermap.org">
+        <img src={openweather} className="openweather" alt="OpenWeather logo" />
+      </a>
     </div>
   );
 }

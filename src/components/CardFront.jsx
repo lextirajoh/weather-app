@@ -207,6 +207,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             <div>{data.current.humidity}%</div>
           </div>
         </div>
+        
       </div>{' '}
     </>
   );
