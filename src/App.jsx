@@ -54,22 +54,27 @@ export default function AppWeather() {
       <Search input={input} setInput={setInput} setCity={setCity} />
 
       {data.current ? (
-        <div className="card">
-          <div className="card-inner">
-            <CardFront
-              data={data}
-              cityName={cityName}
-              cityNameNL={cityNameNL}
-              countryName={countryName}
-            />
-            <CardBack
-              data={data}
-              cityName={cityName}
-              cityNameNL={cityNameNL}
-              countryName={countryName}
-            />
+        <>
+          <div className="card">
+            <input id="toggle" type="checkbox"/>
+            <label htmlFor="toggle">
+              <div className="card-inner">
+                <CardFront
+                  data={data}
+                  cityName={cityName}
+                  cityNameNL={cityNameNL}
+                  countryName={countryName}
+                />
+                <CardBack
+                  data={data}
+                  cityName={cityName}
+                  cityNameNL={cityNameNL}
+                  countryName={countryName}
+                />
+              </div>
+            </label>
           </div>
-        </div>
+        </>
       ) : (
         <div>Voer een stad in</div>
       )}

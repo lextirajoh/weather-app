@@ -1,4 +1,6 @@
 import '../App.css';
+import turn from '../assets/turn2.png';
+
 
 export default function Forecast({ data, cityName, cityNameNL, countryName }) {
   const d = new Date();
@@ -24,6 +26,8 @@ export default function Forecast({ data, cityName, cityNameNL, countryName }) {
 
   return (
     <div className="card-back">
+        <img src={turn} alt="Flip card" className="flip" />
+
       {typeof cityNameNL !== 'undefined' ? (
         <p>
           <span className="city">{cityNameNL}</span>

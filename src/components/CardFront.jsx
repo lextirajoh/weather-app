@@ -6,6 +6,8 @@ import sunrise from '../assets/sunrise.png';
 import humidity from '../assets/humidity.png';
 import uvindex from '../assets/uv-index.png';
 import cloud from '../assets/cloud.png';
+import wind from '../assets/wind.png';
+import turn from '../assets/turn.png';
 
 export default function Current({ data, cityName, cityNameNL, countryName }) {
   const d = new Date();
@@ -28,6 +30,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
   return (
     <>
       <div className="card-front">
+        <img src={turn} alt="Flip card" className="flip" />
         <header>
           {typeof cityNameNL !== 'undefined' ? (
             <p>
@@ -44,7 +47,12 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
               </span>
             </p>
           )}
-          <span className="time">{timeConverter(data.current.dt)} <span className="lokaal"><sup>lokaal</sup></span> </span>
+          <span className="time">
+            {timeConverter(data.current.dt)}{' '}
+            <span className="lokaal">
+              <sup>lokaal</sup>
+            </span>{' '}
+          </span>
         </header>
 
         {/* MIDDEN */}
@@ -60,8 +68,6 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             {data.current.weather[0].description}
           </p>
         </div>
-
-    
 
         {/* ALERT */}
 
@@ -133,6 +139,17 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             </div>
             <div>{data.hourly[4].temp.toFixed()}&deg;</div>
           </div>
+
+          <div className="hour-container">
+            <div> {hourConverter(data.hourly[5].dt)}</div>
+            <div>
+              <img
+                src={`https://openweathermap.org/img/wn/${data.hourly[5].weather[0].icon}.png`}
+                alt="weericoon"
+              />
+            </div>
+            <div>{data.hourly[5].temp.toFixed()}&deg;</div>
+          </div>
         </div>
 
         <div className="line-front-bottom"></div>
@@ -168,6 +185,14 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
               <img src={cloud} width="30px" alt="Bewolking"></img>{' '}
             </div>
             <div>{data.current.clouds}%</div>
+          </div>
+
+          <div className="info-container">
+            <div>
+              {' '}
+              <img src={wind} width="30px" alt="Windsnelheid"></img>{' '}
+            </div>
+            <div>{data.current.wind_speed.toFixed(1)} m/s</div>
           </div>
 
           <div className="info-container">
