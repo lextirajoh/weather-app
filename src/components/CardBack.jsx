@@ -37,14 +37,10 @@ export default function Forecast({ data, cityName, cityNameNL, countryName }) {
         </span>
       </p>
 
-      {/* KOMENDE WEEK */}
-
-      <div className="komende">
+      <div className="komende-week">
         <p>KOMENDE WEEK</p>
         <div className="line-back"></div>
       </div>
-
-      {/* WEEK VERWACHTING */}
 
       <div className="card__back--grid">
         {data.daily.slice(0, 7).map((daily, index) => {
