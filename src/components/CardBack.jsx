@@ -50,33 +50,27 @@ export default function CardBack({
       <section className="card__back--grid">
         {data.daily.slice(0, 7).map((daily, index) => {
           return (
-
-              <article key={index}>
-                <div className="grid-a">
-                  {index === 0 ? (
-                    <p>Vandaag</p>
-                  ) : (
-                    <p>{dayConverter(daily.dt)}</p>
-                  )}
-                </div>
-                <div className="grid-b">
-                  {index === 0 ? (
-                    <img
-                      src={`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`}
-                      alt="weericoon"
-                    />
-                  ) : (
-                    <img
-                      src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}
-                      alt="weericoon"
-                    />
-                  )}
-                </div>
-                <div className="grid-c">{daily.temp.min.toFixed()}°</div>
-                <div className="grid-d">—</div>
-                <div className="grid-e">{daily.temp.day.toFixed()}&deg;</div>
-              </article>
-
+            <article key={index}>
+              <div className="grid-a">
+                {index === 0 ? <p>Vandaag</p> : <p>{dayConverter(daily.dt)}</p>}
+              </div>
+              <div className="grid-b">
+                {index === 0 ? (
+                  <img
+                    src={`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`}
+                    alt="weericoon"
+                  />
+                ) : (
+                  <img
+                    src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}
+                    alt="weericoon"
+                  />
+                )}
+              </div>
+              <div className="grid-c">{daily.temp.min.toFixed()}°</div>
+              <div className="grid-d">—</div>
+              <div className="grid-e">{daily.temp.day.toFixed()}&deg;</div>
+            </article>
           );
         })}
       </section>

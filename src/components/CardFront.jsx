@@ -73,7 +73,7 @@ export default function Current({ data, cityNameEN, cityNameNL, countryName }) {
         <section className="hours__container">
           {data.hourly.slice(0, 6).map((hourly, index) => {
             return (
-              <div className="hour__card" key={index}>
+              <article className="hour__card" key={index}>
                 {index === 0 ? (
                   <div>Nu</div>
                 ) : (
@@ -86,7 +86,7 @@ export default function Current({ data, cityNameEN, cityNameNL, countryName }) {
                   />
                 </div>
                 <div>{hourly.temp.toFixed()}&deg;</div>
-              </div>
+              </article>
             );
           })}
         </section>
@@ -95,48 +95,45 @@ export default function Current({ data, cityNameEN, cityNameNL, countryName }) {
 
         <section className="extra-info__container">
           <div className="extra-info__top">
-            <div className="extra-info__card">
+            <article className="extra-info__card">
               <div>
                 {' '}
                 <img src={sunrise} width="30px" alt="zonsopgang"></img>{' '}
               </div>
               <div>{timeConverter(data.current.sunrise)}</div>
-            </div>
-
-            <div className="extra-info__card">
+            </article>
+            <article className="extra-info__card">
               <div>
                 {' '}
                 <img src={sunset} width="30px" alt="zonsondergang"></img>{' '}
               </div>
               <div>{timeConverter(data.current.sunset)}</div>
-            </div>
-
-            <div className="extra-info__card">
+            </article>
+            <article className="extra-info__card">
               <div>
                 {' '}
                 <img src={uvindex} width="30px" alt="UV-index"></img>{' '}
               </div>
               <div>{data.current.uvi.toFixed()}</div>
-            </div>
+            </article>
           </div>
+
           <div className="extra-info__bottom">
-            <div className="extra-info__card">
+            <article className="extra-info__card">
               <div>
                 {' '}
                 <img src={cloud} width="30px" alt="Bewolking"></img>{' '}
               </div>
               <div>{data.current.clouds}%</div>
-            </div>
-
-            <div className="extra-info__card">
+            </article>
+            <article className="extra-info__card">
               <div>
                 {' '}
                 <img src={wind} width="30px" alt="Windsnelheid"></img>{' '}
               </div>
               <div>{data.current.wind_speed.toFixed(1)} m/s</div>
-            </div>
-
-            <div className="extra-info__card">
+            </article>
+            <article className="extra-info__card">
               <div>
                 {' '}
                 <img
@@ -146,8 +143,9 @@ export default function Current({ data, cityNameEN, cityNameNL, countryName }) {
                 ></img>{' '}
               </div>
               <div>{data.current.humidity}%</div>
-            </div>
+            </article>
           </div>
+          
         </section>
       </main>{' '}
     </>
