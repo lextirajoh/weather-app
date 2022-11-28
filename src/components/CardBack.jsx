@@ -47,10 +47,10 @@ export default function CardBack({
         <div className="line-back"></div>
       </div>
 
-      <section className="card__back--grid">
+
         {data.daily.slice(0, 7).map((daily, index) => {
           return (
-            <article key={index}>
+            <article key={index}  className="card__back--grid">
               <div className="grid-a">
                 {index === 0 ? <p>Vandaag</p> : <p>{dayConverter(daily.dt)}</p>}
               </div>
@@ -73,7 +73,7 @@ export default function CardBack({
             </article>
           );
         })}
-      </section>
+
 
       <div className="line-back2"></div>
 

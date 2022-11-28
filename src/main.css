@@ -305,7 +305,6 @@ label {
   align-items: center;
   width: 90%;
   grid-template-columns: 9fr 5fr 2fr 2fr 2fr;
-  grid-template-rows: auto;
   grid-gap: 0;
   font-size: 1.1rem;
 }
