@@ -68,8 +68,8 @@ h6 {
 
 label {
   width: 95%;
-  max-width: 31rem;
-  height: 35rem;
+  max-width: 25rem;
+  height: 32rem;
   perspective: 1000px;
 }
 
@@ -137,7 +137,7 @@ label {
 
 .city {
   display: inline;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   line-height: 40px;
   text-shadow: 0 2px 4px rgba(52, 160, 242, 0.4);
@@ -157,7 +157,7 @@ label {
 }
 
 .time {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 .card__front--middle {
@@ -166,12 +166,12 @@ label {
 }
 
 .temp {
-  font-size: 5rem;
+  font-size: 4rem;
   margin-bottom: -1rem;
 }
 
 .desc {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-top: 0.7rem;
 }
@@ -195,14 +195,15 @@ label {
   flex-wrap: nowrap;
   justify-content: center;
   margin-top: 2.5rem;
-  gap: .2rem;
+  gap: 8px;
 }
 
 .hour__card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 0.6rem;
+  /* border: 1px solid red; */
+
 }
 
 .line-front {
@@ -216,25 +217,27 @@ label {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  gap: .4rem;
   margin: 1rem 0;
+  gap: 20px;
+
 }
 
 .extra-info__top,
 .extra-info__bottom {
   display: flex;
+  gap: 20px
 }
 
 .extra-info__card {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   align-items: center;
-  margin: 0 1rem;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 413px) {
   label {
-    height: 33.5rem;
+    min-height: 33.5rem;
   }
 
   .city {
@@ -268,6 +271,7 @@ label {
 
   .extra-info__container {
     flex-wrap: wrap;
+    gap: 10px;
   }
 }
 
@@ -277,12 +281,15 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
   transform: rotateY(180deg);
 }
 
-.komende-week {
+main {
   width: 90%;
+}
+
+.komende-week {
+  width: 100%;
   margin-top: 1.5rem;
   font-size: 1.1rem;
 }
@@ -293,26 +300,21 @@ label {
   margin: 0.2rem auto 0.5rem auto;
   background-color: rgba(255, 255, 255, 0.7);
 }
-.line-back2 {
-  width: 90%;
-  height: 1px;
-  margin: 0.2rem auto 0.5rem auto;
-  background-color: rgba(255, 255, 255, 0.7);
-}
-.card__back--grid {
+
+.week-forecast {
   display: grid;
   justify-content: center;
   align-items: center;
   width: 90%;
   grid-template-columns: 9fr 5fr 2fr 2fr 2fr;
-  grid-gap: 0;
+  grid-template-rows: 2.8rem;;
   font-size: 1.1rem;
 }
 
 .grid-a {
   grid-column: 1 / span 1;
   text-align: start;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .grid-b {

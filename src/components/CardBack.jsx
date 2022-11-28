@@ -29,7 +29,8 @@ export default function CardBack({
   }
 
   return (
-    <main className="card__back">
+    <div className="card__back">
+      <main>
       <img src={flipcard} alt="Flip card" className="flip" />
       <header>
         {cityNameNL ? (
@@ -44,38 +45,36 @@ export default function CardBack({
 
       <div className="komende-week">
         <p>KOMENDE WEEK</p>
-        <div className="line-back"></div>
+        <div className="line-back" />
       </div>
 
+      {data.daily.slice(0, 7).map((daily, index) => {
+        return (
+          <article key={index} className="week-forecast">
+            <div className="grid-a">
+              {index === 0 ? <p>Vandaag</p> : <p>{dayConverter(daily.dt)}</p>}
+            </div>
+            <div className="grid-b">
+              {index === 0 ? (
+                <img
+                  src={`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`}
+                  alt="weericoon"
+                />
+              ) : (
+                <img
+                  src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}
+                  alt="weericoon"
+                />
+              )}
+            </div>
+            <div className="grid-c">{daily.temp.min.toFixed()}°</div>
+            <div className="grid-d">—</div>
+            <div className="grid-e">{daily.temp.day.toFixed()}&deg;</div>
+          </article>
+        );
+      })}
 
-        {data.daily.slice(0, 7).map((daily, index) => {
-          return (
-            <article key={index}  className="card__back--grid">
-              <div className="grid-a">
-                {index === 0 ? <p>Vandaag</p> : <p>{dayConverter(daily.dt)}</p>}
-              </div>
-              <div className="grid-b">
-                {index === 0 ? (
-                  <img
-                    src={`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`}
-                    alt="weericoon"
-                  />
-                ) : (
-                  <img
-                    src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}
-                    alt="weericoon"
-                  />
-                )}
-              </div>
-              <div className="grid-c">{daily.temp.min.toFixed()}°</div>
-              <div className="grid-d">—</div>
-              <div className="grid-e">{daily.temp.day.toFixed()}&deg;</div>
-            </article>
-          );
-        })}
-
-
-      <div className="line-back2"></div>
+<div className="line-back" />
 
       <a href="https://openweathermap.org">
         <img
@@ -84,6 +83,7 @@ export default function CardBack({
           alt="OpenWeather logo"
         />
       </a>
-    </main>
+      </main>
+    </div>
   );
 }
