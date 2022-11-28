@@ -1,7 +1,12 @@
 import flipcard from '../assets/turn2.png';
 import openweather from '../assets/openweather.png';
 
-export default function Forecast({ data, cityNameEN, cityNameNL, countryName }) {
+export default function CardBack({
+  data,
+  cityNameEN,
+  cityNameNL,
+  countryName,
+}) {
   const d = new Date();
   const userOffset = d.getTimezoneOffset() * 60;
 
@@ -46,25 +51,31 @@ export default function Forecast({ data, cityNameEN, cityNameNL, countryName }) 
         {data.daily.slice(0, 7).map((daily, index) => {
           return (
             <>
-              <div className="grid-a">
-                {index === 0 ? <p>Vandaag</p> : <p>{dayConverter(daily.dt)}</p>}
-              </div>
-              <div className="grid-b">
-                {index === 0 ? (
-                  <img
-                    src={`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`}
-                    alt="weericoon"
-                  />
-                ) : (
-                  <img
-                    src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}
-                    alt="weericoon"
-                  />
-                )}
-              </div>
-              <div className="grid-c">{daily.temp.min.toFixed()}°</div>
-              <div className="grid-d">—</div>
-              <div className="grid-e">{daily.temp.day.toFixed()}&deg;</div>
+              <article key={index}>
+                <div className="grid-a">
+                  {index === 0 ? (
+                    <p>Vandaag</p>
+                  ) : (
+                    <p>{dayConverter(daily.dt)}</p>
+                  )}
+                </div>
+                <div className="grid-b">
+                  {index === 0 ? (
+                    <img
+                      src={`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`}
+                      alt="weericoon"
+                    />
+                  ) : (
+                    <img
+                      src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}
+                      alt="weericoon"
+                    />
+                  )}
+                </div>
+                <div className="grid-c">{daily.temp.min.toFixed()}°</div>
+                <div className="grid-d">—</div>
+                <div className="grid-e">{daily.temp.day.toFixed()}&deg;</div>
+              </article>
             </>
           );
         })}

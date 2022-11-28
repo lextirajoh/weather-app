@@ -3,7 +3,7 @@ import Search from './components/Search';
 import CardFront from './components/CardFront';
 import CardBack from './components/CardBack';
 
-export default function AppWeather() {
+export default function App() {
   const apiKey = 'a579bad7a75725b1c18b236cd1878ba0';
   const [input, setInput] = useState('');
   const [city, setCity] = useState('amsterdam');
