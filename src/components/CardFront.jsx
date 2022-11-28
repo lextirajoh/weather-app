@@ -28,7 +28,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
 
   return (
     <>
-      <div className="card__front">
+      <main className="card__front">
         <img src={flipcard} alt="Flip card" className="flip" />
         <header>
           <p>
@@ -49,11 +49,11 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
           </span>
         </header>
 
-        <div className="card__front--middle">
+        <section className="card__front--middle">
           <div className="temp">{data.current.temp.toFixed()}&deg;</div>
           Voelt als {data.current.feels_like.toFixed()}&deg;
           <p className="desc">{data.current.weather[0].description}</p>
-        </div>
+        </section>
 
         {/* ALERT */}
 
@@ -70,7 +70,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
 
         {/* KOMENDE UREN */}
 
-        <div className="hours__container">
+        <section className="hours__container">
           {data.hourly.slice(0, 6).map((hourly, index) => {
             return (
               <div className="hour__card" key={index}>
@@ -89,11 +89,11 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
               </div>
             );
           })}
-        </div>
+        </section>
 
         <div className="line-front"></div>
 
-        <div className="extra-info__container">
+        <section className="extra-info__container">
           <div className="extra-info__top">
             <div className="extra-info__card">
               <div>
@@ -148,8 +148,8 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
               <div>{data.current.humidity}%</div>
             </div>
           </div>
-        </div>
-      </div>{' '}
+        </section>
+      </main>{' '}
     </>
   );
 }

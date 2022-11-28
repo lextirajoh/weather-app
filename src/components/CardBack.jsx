@@ -24,9 +24,9 @@ export default function Forecast({ data, cityName, cityNameNL, countryName }) {
   }
 
   return (
-    <div className="card__back">
+    <main className="card__back">
       <img src={flipcard} alt="Flip card" className="flip" />
-      <p>
+      <header>
         {cityNameNL ? (
           <span className="city">{cityNameNL}</span>
         ) : (
@@ -35,14 +35,14 @@ export default function Forecast({ data, cityName, cityNameNL, countryName }) {
         <span className="country">
           <sup>{countryName}</sup>
         </span>
-      </p>
+      </header>
 
       <div className="komende-week">
         <p>KOMENDE WEEK</p>
         <div className="line-back"></div>
       </div>
 
-      <div className="card__back--grid">
+      <section className="card__back--grid">
         {data.daily.slice(0, 7).map((daily, index) => {
           return (
             <>
@@ -68,7 +68,7 @@ export default function Forecast({ data, cityName, cityNameNL, countryName }) {
             </>
           );
         })}
-      </div>
+      </section>
 
       <div className="line-back2"></div>
 
@@ -79,6 +79,6 @@ export default function Forecast({ data, cityName, cityNameNL, countryName }) {
           alt="OpenWeather logo"
         />
       </a>
-    </div>
+    </main>
   );
 }
