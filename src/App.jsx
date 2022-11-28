@@ -46,10 +46,7 @@ export default function App() {
   const cityNameEN = location.city;
   const cityNameNL = location.cityNL;
   const countryName = location.country;
-
-  console.log(cityNameEN);
-
-
+  
   return (
     <div className="container">
       <Search input={input} setInput={setInput} setCity={setCity} />

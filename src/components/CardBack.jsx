@@ -50,7 +50,7 @@ export default function CardBack({
       <section className="card__back--grid">
         {data.daily.slice(0, 7).map((daily, index) => {
           return (
-            <>
+
               <article key={index}>
                 <div className="grid-a">
                   {index === 0 ? (
@@ -76,7 +76,7 @@ export default function CardBack({
                 <div className="grid-d">—</div>
                 <div className="grid-e">{daily.temp.day.toFixed()}&deg;</div>
               </article>
-            </>
+
           );
         })}
       </section>
