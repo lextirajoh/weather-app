@@ -31,21 +31,16 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
       <div className="card__front">
         <img src={flipcard} alt="Flip card" className="flip" />
         <header>
-          {typeof cityNameNL !== 'undefined' ? (
-            <p>
+          <p>
+            {cityNameNL ? (
               <span className="city">{cityNameNL}</span>
-              <span className="country">
-                <sup>{countryName}</sup>
-              </span>
-            </p>
-          ) : (
-            <p>
-              <span className="city">{cityName}</span>{' '}
-              <span className="country">
-                <sup>{countryName}</sup>
-              </span>
-            </p>
-          )}
+            ) : (
+              <span className="city">{cityName}</span>
+            )}
+            <span className="country">
+              <sup>{countryName}</sup>
+            </span>
+          </p>
           <span className="time">
             {timeConverter(data.current.dt)}{' '}
             <span className="lokaal">
