@@ -8,7 +8,7 @@ import cloud from '../assets/cloud.png';
 import wind from '../assets/wind.png';
 import flipcard from '../assets/turn.png';
 
-export default function Current({ data, cityNameEN, cityNameNL, countryName }) {
+export default function CardFront({ data, cityNameEN, cityNameNL, countryName }) {
   const d = new Date();
   const userOffset = d.getTimezoneOffset() * 60;
 
@@ -145,7 +145,7 @@ export default function Current({ data, cityNameEN, cityNameNL, countryName }) {
               <div>{data.current.humidity}%</div>
             </article>
           </div>
-          
+
         </section>
       </main>{' '}
     </>
