@@ -25,7 +25,7 @@ export default function AppWeather() {
         setLocation({
           lat: data[0].lat,
           lon: data[0].lon,
-          cityEN: data[0].name,
+          city: data[0].name,
           cityNL: data[0].local_names.nl,
           country: data[0].country,
         });
@@ -46,6 +46,9 @@ export default function AppWeather() {
   const cityNameEN = location.city;
   const cityNameNL = location.cityNL;
   const countryName = location.country;
+
+  console.log(cityNameEN);
+
 
   return (
     <div className="container">
