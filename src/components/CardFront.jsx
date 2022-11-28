@@ -6,7 +6,7 @@ import humidity from '../assets/humidity.png';
 import uvindex from '../assets/uv-index.png';
 import cloud from '../assets/cloud.png';
 import wind from '../assets/wind.png';
-import turn from '../assets/turn.png';
+import flipcard from '../assets/turn.png';
 
 export default function Current({ data, cityName, cityNameNL, countryName }) {
   const d = new Date();
@@ -29,7 +29,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
   return (
     <>
       <div className="card__front">
-        <img src={turn} alt="Flip card" className="flip" />
+        <img src={flipcard} alt="Flip card" className="flip" />
         <header>
           {typeof cityNameNL !== 'undefined' ? (
             <p>
@@ -54,8 +54,6 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
           </span>
         </header>
 
-        {/* MIDDEN */}
-
         <div className="card__front--middle">
           <div className="temp">{data.current.temp.toFixed()}&deg;</div>
           Voelt als {data.current.feels_like.toFixed()}&deg;
@@ -75,74 +73,27 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
           <div className="line"></div>
         </div> */}
 
-        {/* komende uren voorspelling */}
+        {/* KOMENDE UREN */}
 
         <div className="hours__container">
-          <div className="hour__card">
-            <div>Nu</div>
-            <div>
-              <img
-                src={`https://openweathermap.org/img/wn/${data.hourly[0].weather[0].icon}.png`}
-                alt="weericoon"
-              />
-            </div>
-            <div>{data.hourly[0].temp.toFixed()}&deg;</div>
-          </div>
-
-          <div className="hour__card">
-            <div> {hourConverter(data.hourly[1].dt)}</div>
-            <div>
-              <img
-                src={`https://openweathermap.org/img/wn/${data.hourly[1].weather[0].icon}.png`}
-                alt="weericoon"
-              />
-            </div>
-            <div>{data.hourly[1].temp.toFixed()}&deg;</div>
-          </div>
-
-          <div className="hour__card">
-            <div> {hourConverter(data.hourly[2].dt)}</div>
-            <div>
-              <img
-                src={`https://openweathermap.org/img/wn/${data.hourly[2].weather[0].icon}.png`}
-                alt="weericoon"
-              />
-            </div>
-            <div>{data.hourly[2].temp.toFixed()}&deg;</div>
-          </div>
-
-          <div className="hour__card">
-            <div> {hourConverter(data.hourly[3].dt)}</div>
-            <div>
-              <img
-                src={`https://openweathermap.org/img/wn/${data.hourly[3].weather[0].icon}.png`}
-                alt="weericoon"
-              />
-            </div>
-            <div>{data.hourly[3].temp.toFixed()}&deg;</div>
-          </div>
-
-          <div className="hour__card">
-            <div> {hourConverter(data.hourly[4].dt)}</div>
-            <div>
-              <img
-                src={`https://openweathermap.org/img/wn/${data.hourly[4].weather[0].icon}.png`}
-                alt="weericoon"
-              />
-            </div>
-            <div>{data.hourly[4].temp.toFixed()}&deg;</div>
-          </div>
-
-          <div className="hour__card">
-            <div> {hourConverter(data.hourly[5].dt)}</div>
-            <div>
-              <img
-                src={`https://openweathermap.org/img/wn/${data.hourly[5].weather[0].icon}.png`}
-                alt="weericoon"
-              />
-            </div>
-            <div>{data.hourly[5].temp.toFixed()}&deg;</div>
-          </div>
+          {data.hourly.slice(0, 6).map((hourly, index) => {
+            return (
+              <div className="hour__card" key={index}>
+                {index === 0 ? (
+                  <div>Nu</div>
+                ) : (
+                  <div> {hourConverter(hourly.dt)}</div>
+                )}
+                <div>
+                  <img
+                    src={`https://openweathermap.org/img/wn/${hourly.weather[0].icon}.png`}
+                    alt="weericoon"
+                  />
+                </div>
+                <div>{hourly.temp.toFixed()}&deg;</div>
+              </div>
+            );
+          })}
         </div>
 
         <div className="line-front"></div>
