@@ -8,7 +8,7 @@ import cloud from '../assets/cloud.png';
 import wind from '../assets/wind.png';
 import flipcard from '../assets/turn.png';
 
-export default function Current({ data, cityName, cityNameNL, countryName }) {
+export default function Current({ data, cityNameEN, cityNameNL, countryName }) {
   const d = new Date();
   const userOffset = d.getTimezoneOffset() * 60;
 
@@ -35,7 +35,7 @@ export default function Current({ data, cityName, cityNameNL, countryName }) {
             {cityNameNL ? (
               <span className="city">{cityNameNL}</span>
             ) : (
-              <span className="city">{cityName}</span>
+              <span className="city">{cityNameEN}</span>
             )}
             <span className="country">
               <sup>{countryName}</sup>

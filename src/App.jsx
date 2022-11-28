@@ -25,7 +25,7 @@ export default function AppWeather() {
         setLocation({
           lat: data[0].lat,
           lon: data[0].lon,
-          city: data[0].name,
+          cityEN: data[0].name,
           cityNL: data[0].local_names.nl,
           country: data[0].country,
         });
@@ -43,7 +43,7 @@ export default function AppWeather() {
       });
   }, [location]);
 
-  const cityName = location.city;
+  const cityNameEN = location.city;
   const cityNameNL = location.cityNL;
   const countryName = location.country;
 
@@ -59,13 +59,13 @@ export default function AppWeather() {
               <div className="card__inner">
                 <CardFront
                   data={data}
-                  cityName={cityName}
+                  cityNameEN={cityNameEN}
                   cityNameNL={cityNameNL}
                   countryName={countryName}
                 />
                 <CardBack
                   data={data}
-                  cityName={cityName}
+                  cityNameEN={cityNameEN}
                   cityNameNL={cityNameNL}
                   countryName={countryName}
                 />
