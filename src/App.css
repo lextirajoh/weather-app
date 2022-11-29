@@ -280,6 +280,7 @@ label {
 .card__back {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   transform: rotateY(180deg);
 }

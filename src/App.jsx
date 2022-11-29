@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Search from './components/Search';
-import CardFront from './components/CardFront';
+import React, { useEffect, useState } from 'react';
+import './App.css';
 import CardBack from './components/CardBack';
+import CardFront from './components/CardFront';
+import Search from './components/Search';
 
 export default function App() {
   const apiKey = 'a579bad7a75725b1c18b236cd1878ba0';
@@ -46,7 +47,7 @@ export default function App() {
   const cityNameEN = location.city;
   const cityNameNL = location.cityNL;
   const countryName = location.country;
-  
+
   return (
     <div className="container">
       <Search input={input} setInput={setInput} setCity={setCity} />
