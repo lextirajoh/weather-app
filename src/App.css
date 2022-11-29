@@ -265,9 +265,9 @@ label {
     font-size: 1.5rem;
   }
 
-  .hour__card:last-of-type {
+  /* .hour__card:last-of-type {
     display: none;
-  }
+  } */
 
   .extra-info__container {
     flex-wrap: wrap;
