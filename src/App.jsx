@@ -5,7 +5,7 @@ import CardFront from './components/CardFront';
 import Search from './components/Search';
 
 export default function App() {
-  const apiKey = 'a579bad7a75725b1c18b236cd1878ba0';
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [input, setInput] = useState('');
   const [city, setCity] = useState('amsterdam');
   const [location, setLocation] = useState({
