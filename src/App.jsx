@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import CardBack from './components/CardBack';
 import CardFront from './components/CardFront';
 import Search from './components/Search';
+import './App.css';
 
 export default function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const [lat, setLat] = useState();
+  const [lon, setLon] = useState();
+  const [data, setData] = useState({});
   const [input, setInput] = useState('');
   const [city, setCity] = useState('');
   const [location, setLocation] = useState({});
-  const [data, setData] = useState({});
-  const [lat, setLat] = useState();
-  const [lon, setLon] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +19,6 @@ export default function App() {
         setLat(position.coords.latitude);
         setLon(position.coords.longitude);
       });
-
       await fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=nl&appid=${apiKey}`
       )
@@ -71,7 +70,6 @@ export default function App() {
   return (
     <div className="container">
       <Search input={input} setInput={setInput} setCity={setCity} />
-
       {data.current ? (
         <>
           <div className="card">
