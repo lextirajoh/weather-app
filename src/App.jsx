@@ -7,17 +7,37 @@ import Search from './components/Search';
 export default function App() {
   const apiKey = import.meta.env.VITE_API_KEY;
   const [input, setInput] = useState('');
-  const [city, setCity] = useState('amsterdam');
-  const [location, setLocation] = useState({
-    city: 'Amsterdam',
-    cityNL: 'Amsterdam',
-    country: 'NL',
-    lat: 52.3727598,
-    lon: 4.8936041,
-  });
-  const [data, setData] = useState([]);
+  const [city, setCity] = useState('');
+  const [location, setLocation] = useState({});
+  const [data, setData] = useState({});
+  const [lat, setLat] = useState();
+  const [lon, setLon] = useState();
 
   useEffect(() => {
+    const fetchData = async () => {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        setLat(position.coords.latitude);
+        setLon(position.coords.longitude);
+      });
+
+      await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=nl&appid=${apiKey}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setLocation({
+            lat: data.coord.lat,
+            lon: data.coord.lon,
+            city: data.name,
+            country: data.sys.country,
+          });
+        });
+    };
+    fetchData();
+  }, [lat, lon]);
+
+  useEffect(() => {
+    if (!city) return;
     fetch(
       `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
     )
