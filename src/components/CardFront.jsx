@@ -71,7 +71,7 @@ export default function CardFront({
                 )}
                 <div>
                   <img
-                    src={`/../assets/weather/${hourly.weather[0].icon}.svg`}
+                    src={`https://openweathermap.org/img/wn/${hourly.weather[0].icon}.png`}
                     alt="weericoon"
                   />
                 </div>
