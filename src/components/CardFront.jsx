@@ -30,6 +30,7 @@ export default function CardFront({
       .format('HH');
     return localHour;
   }
+  console.log(data);
 
   return (
     <>
@@ -60,6 +61,8 @@ export default function CardFront({
           <p className="desc">{data.current.weather[0].description}</p>
         </section>
 
+        <div className="line-front"></div>
+
         <section className="hours__container">
           {data.hourly.slice(0, 6).map((hourly, index) => {
             return (
@@ -72,7 +75,7 @@ export default function CardFront({
                 <div>
                   <img
                     src={`icons/${hourly.weather[0].icon}.svg`}
-                    alt="weericoon"
+                    alt={`${hourly.weather[0].description}`}
                   />
                 </div>
                 <div>{hourly.temp.toFixed()}&deg;</div>

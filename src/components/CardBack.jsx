@@ -58,12 +58,12 @@ export default function CardBack({
                 {index === 0 ? (
                   <img
                     src={`icons/${data.current.weather[0].icon}.svg`}
-                    alt="weericoon"
+                    alt={`${data.current.weather[0].description}`}
                   />
                 ) : (
                   <img
                     src={`icons/${daily.weather[0].icon}.svg`}
-                    alt="weericoon"
+                    alt={`${daily.weather[0].description}`}
                   />
                 )}
               </div>

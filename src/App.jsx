@@ -18,8 +18,6 @@ export default function App() {
       navigator.geolocation.getCurrentPosition(function (position) {
         setLat(position.coords.latitude);
         setLon(position.coords.longitude);
-        console.log('runs');
-
       });
       await fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=nl&appid=${apiKey}`
