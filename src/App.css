@@ -198,6 +198,10 @@ label {
   gap: 8px;
 }
 
+.hours__container img {
+  width: 50px
+}
+
 .hour__card {
   display: flex;
   flex-direction: column;
@@ -265,10 +269,6 @@ label {
     font-size: 1.5rem;
   }
 
-  /* .hour__card:last-of-type {
-    display: none;
-  } */
-
   .extra-info__container {
     flex-wrap: wrap;
     gap: 10px;
@@ -306,7 +306,7 @@ main {
   display: grid;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 100%;
   grid-template-columns: 9fr 5fr 2fr 2fr 2fr;
   grid-template-rows: 2.8rem;;
   font-size: 1.1rem;
@@ -320,6 +320,10 @@ main {
 
 .grid-b {
   grid-column: 2 / span 1;
+}
+
+.grid-b img {
+  width: 40px
 }
 
 .grid-c {

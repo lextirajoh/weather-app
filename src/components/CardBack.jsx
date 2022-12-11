@@ -57,12 +57,12 @@ export default function CardBack({
               <div className="grid-b">
                 {index === 0 ? (
                   <img
-                    src={`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`}
+                    src={`icons/${data.current.weather[0].icon}.svg`}
                     alt="weericoon"
                   />
                 ) : (
                   <img
-                    src={`https://openweathermap.org/img/wn/${daily.weather[0].icon}.png`}
+                    src={`icons/${daily.weather[0].icon}.svg`}
                     alt="weericoon"
                   />
                 )}
