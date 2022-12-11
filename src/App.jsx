@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import CardBack from './components/CardBack';
 import CardFront from './components/CardFront';
+import CardBack from './components/CardBack';
 import Search from './components/Search';
 import './App.css';
 
@@ -33,7 +33,7 @@ export default function App() {
         });
     };
     fetchData();
-  }, [lat, lon]);
+  }, []);
 
   useEffect(() => {
     if (!city) return;

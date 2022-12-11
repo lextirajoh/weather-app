@@ -8,7 +8,12 @@ import cloud from '../assets/cloud.png';
 import wind from '../assets/wind.png';
 import flipcard from '../assets/turn.png';
 
-export default function CardFront({ data, cityNameEN, cityNameNL, countryName }) {
+export default function CardFront({
+  data,
+  cityNameEN,
+  cityNameNL,
+  countryName,
+}) {
   const d = new Date();
   const userOffset = d.getTimezoneOffset() * 60;
 
@@ -54,21 +59,6 @@ export default function CardFront({ data, cityNameEN, cityNameNL, countryName })
           Voelt als {data.current.feels_like.toFixed()}&deg;
           <p className="desc">{data.current.weather[0].description}</p>
         </section>
-
-        {/* ALERT */}
-
-        {/* <div className="alert">
-          {!data.alerts ? (
-            <p>Geen waarschuwingen op dit moment.</p>
-          ) : (
-            <p>
-              <i>{data.alerts[0].event}</i>
-            </p>
-          )}
-          <div className="line"></div>
-        </div> */}
-
-        {/* KOMENDE UREN */}
 
         <section className="hours__container">
           {data.hourly.slice(0, 6).map((hourly, index) => {
@@ -145,7 +135,6 @@ export default function CardFront({ data, cityNameEN, cityNameNL, countryName })
               <div>{data.current.humidity}%</div>
             </article>
           </div>
-
         </section>
       </main>{' '}
     </>
