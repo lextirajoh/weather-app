@@ -91,14 +91,14 @@ export default function CardFront({
             <article className="extra-info__card">
               <div>
                 {' '}
-                <img src={sunrise} width="30px" alt="zonsopgang"></img>{' '}
+                <img src={sunrise} width="30px" alt="Tijdstip zonsopgang"></img>{' '}
               </div>
               <div>{timeConverter(data.current.sunrise)}</div>
             </article>
             <article className="extra-info__card">
               <div>
                 {' '}
-                <img src={sunset} width="30px" alt="zonsondergang"></img>{' '}
+                <img src={sunset} width="30px" alt="Tijdstip zonsondergang"></img>{' '}
               </div>
               <div>{timeConverter(data.current.sunset)}</div>
             </article>
@@ -132,7 +132,7 @@ export default function CardFront({
                 <img
                   src={humidity}
                   width="30px"
-                  alt="luchtvochtigheid"
+                  alt="Luchtvochtigheid"
                 ></img>{' '}
               </div>
               <div>{data.current.humidity}%</div>
