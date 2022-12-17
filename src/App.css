@@ -161,7 +161,7 @@ label {
 }
 
 .card__front--middle {
-  margin-bottom: 30px;;
+  margin-bottom: 30px;
   text-align: center;
   font-size: 1.2rem;
 }
@@ -200,7 +200,7 @@ label {
 }
 
 .hours__container img {
-  width: 50px
+  width: 50px;
 }
 
 .hour__card {
@@ -208,7 +208,6 @@ label {
   flex-direction: column;
   align-items: center;
   /* border: 1px solid red; */
-
 }
 
 .line-front {
@@ -224,13 +223,12 @@ label {
   justify-content: center;
   margin: 1rem 0;
   gap: 20px;
-
 }
 
 .extra-info__top,
 .extra-info__bottom {
   display: flex;
-  gap: 20px
+  gap: 20px;
 }
 
 .extra-info__card {
@@ -311,7 +309,7 @@ main {
   align-items: center;
   width: 100%;
   grid-template-columns: 9fr 5fr 2fr 2fr 2fr;
-  grid-template-rows: 2.8rem;;
+  grid-template-rows: 2.8rem;
   font-size: 1.1rem;
 }
 
@@ -326,7 +324,7 @@ main {
 }
 
 .grid-b img {
-  width: 45px
+  width: 45px;
 }
 
 .grid-c {
