@@ -33,7 +33,7 @@ export default function App() {
         });
     };
     fetchData();
-  }, [lat, lon]);
+  }, [lat, lon]); 
 
   useEffect(() => {
     if (!city) return;
