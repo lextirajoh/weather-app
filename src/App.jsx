@@ -33,7 +33,7 @@ export default function App() {
         });
     };
     fetchData();
-  }, [lat, lon]); 
+  }, [lat, lon]);
 
   useEffect(() => {
     if (!city) return;
@@ -50,7 +50,7 @@ export default function App() {
           country: data[0].country,
         });
       });
-  }, [city]);
+  }, [city]); 
 
   useEffect(() => {
     if (!location) return;
