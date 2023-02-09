@@ -110,17 +110,17 @@ label {
   color: white;
   border-radius: 1.5rem;
   background-image: linear-gradient(
-    45deg,
-    hsl(190deg 78% 43%) 0%,
-    hsl(191deg 66% 47%) 11%,
-    hsl(191deg 61% 51%) 22%,
-    hsl(192deg 64% 54%) 33%,
-    hsl(192deg 67% 57%) 44%,
-    hsl(193deg 70% 60%) 56%,
-    hsl(193deg 75% 63%) 67%,
-    hsl(194deg 80% 66%) 78%,
-    hsl(194deg 86% 69%) 89%,
-    hsl(194deg 93% 72%) 100%
+    180deg,
+    hsl(212deg 58% 42%) 0%,
+    hsl(212deg 52% 44%) 11%,
+    hsl(211deg 47% 47%) 22%,
+    hsl(211deg 43% 50%) 33%,
+    hsl(211deg 44% 53%) 45%,
+    hsl(210deg 44% 56%) 56%,
+    hsl(210deg 45% 59%) 67%,
+    hsl(209deg 46% 62%) 78%,
+    hsl(208deg 47% 65%) 89%,
+    hsl(208deg 48% 67%) 100%
   );
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
